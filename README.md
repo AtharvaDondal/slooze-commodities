@@ -25,7 +25,7 @@ All features requested in the assignment document are implemented and working.
 
 ```bash
 # 1. Clone
-git clone
+git clone https://github.com/AtharvaDondal/slooze-commodities
 cd slooze-commodities
 
 # 2. Install
