@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import RoleGate from "@/components/RoleGate";
 import { Role } from "@/types";
+import { ProductActions } from "@/components/products/ProductActions";
 
 async function getProducts(): Promise<Product[]> {
   const res = await fetch(
@@ -60,14 +61,9 @@ export default async function ProductsPage() {
                   <td className="p-2">{p.category}</td>
                   <td className="p-2">${p.price.toFixed(2)}</td>
                   <td className="p-2">{p.stock}</td>
+
                   <td className="p-2">
-                    <RoleGate allowed={[Role.Manager]}>
-                      <Link href={`/products/${p.id}`}>
-                        <Button className="cursor-pointer" variant="ghost" size="sm">
-                          Edit
-                        </Button>
-                      </Link>
-                    </RoleGate>
+                    <ProductActions id={p.id} />
                   </td>
                 </tr>
               ))}
