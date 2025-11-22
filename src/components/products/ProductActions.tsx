@@ -9,7 +9,7 @@ export function ProductActions({ id }: Props) {
   return (
     <RoleGate allowed={[Role.Manager]}>
       <Link href={`/products/${id}`}>
-        <Button variant="ghost" size="sm">
+        <Button className="cursor-pointer" variant="ghost" size="sm">
           Edit
         </Button>
       </Link>

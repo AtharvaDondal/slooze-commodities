@@ -8,7 +8,11 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <UserProvider>
+        <div >
+            {/*  */}
+
         {children}
+        </div>
         <Toaster position="top-left" />
       </UserProvider>
     </ThemeProvider>

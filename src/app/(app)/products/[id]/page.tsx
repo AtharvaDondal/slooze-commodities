@@ -1,13 +1,15 @@
+// src/app/(app)/products/[id]/page.tsx
 import { notFound } from "next/navigation";
 import ProductForm from "@/components/products/ProductForm";
 import { productsDb } from "@/lib/mock-db";
 
-export default function EditProductPage({
+export default async function EditProductPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const product = productsDb.find((p) => p.id === params.id);
+  const { id } = await params;
+  const product = productsDb.find((p) => p.id === id);
   if (!product) notFound();
 
   return (
